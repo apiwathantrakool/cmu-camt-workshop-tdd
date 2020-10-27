@@ -14,9 +14,6 @@ export const getStatusBackgroundColor = (remainHours, totalHours) => {
 };
 
 export const getHoursPercentage = (hours, totalHours) => {
-  const hoursPercentage = (
-    (_.toInteger(hours) / _.toInteger(totalHours)) *
-    100
-  ).toFixed(0);
+  const hoursPercentage = (_.toInteger(hours) / _.toInteger(totalHours)) * 100;
   return hoursPercentage;
 };

@@ -1,4 +1,4 @@
-import { getStatusBackgroundColor } from "./Example03";
+import { getStatusBackgroundColor, getHoursPercentage } from "./Example03";
 
 describe("get backgroundColor style value for status bar by percentage", () => {
   it("case: percentage > 40", () => {
@@ -55,4 +55,15 @@ describe("get backgroundColor style value for status bar by percentage", () => {
     const expectResult = "red";
     expect(actualResult).toEqual(expectResult);
   });
+});
+
+it("get percentage from hours and total hours", () => {
+  // Arrange
+  const hours = 12;
+  const totalHours = 24;
+  // Act
+  const result = getHoursPercentage(hours, totalHours);
+  // Assert
+  const expectResult = 50;
+  expect(result).toEqual(expectResult);
 });
