@@ -57,13 +57,15 @@ describe("get backgroundColor style value for status bar by percentage", () => {
   });
 });
 
-it("get percentage from hours and total hours", () => {
-  // Arrange
-  const hours = 12;
-  const totalHours = 24;
-  // Act
-  const result = getHoursPercentage(hours, totalHours);
-  // Assert
-  const expectResult = 50;
-  expect(result).toEqual(expectResult);
+describe("get percentage from hours and total hours", () => {
+  it("case: normal", () => {
+    // Arrange
+    const hours = 12;
+    const totalHours = 24;
+    // Act
+    const result = getHoursPercentage(hours, totalHours);
+    // Assert
+    const expectResult = 50;
+    expect(result).toEqual(expectResult);
+  });
 });
