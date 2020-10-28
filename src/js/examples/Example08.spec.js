@@ -1,4 +1,4 @@
-import { getOpenCloseHours } from "./Example08";
+import { getOpenCloseHours, getDayOfWeek, getDateTimePrice } from "./Example08";
 
 describe("get open and close hours of specific date from provider data", () => {
   const mockOpeningTimes = {
@@ -25,5 +25,33 @@ describe("get open and close hours of specific date from provider data", () => {
       openingTime: null,
       closingTime: null,
     });
+  });
+});
+
+describe("get day of week", () => {
+  it("case: normal", () => {
+    const date = "2020-10-28";
+    const result = getDayOfWeek(date);
+    const expectResult = "Wednesday";
+    expect(result).toEqual(expectResult);
+  });
+});
+
+describe("get price from specific date and time", () => {
+  it("case: normal", () => {
+    const priceList = {
+      Monday: {
+        "13:00": 110,
+        "14:00": 120,
+      },
+      Tuesday: {
+        "13:00": 130,
+        "14:00": 140,
+      },
+    };
+    const date = "2020-04-20";
+    const hour = "14:00";
+    const price = getDateTimePrice(priceList, date, hour);
+    expect(price).toEqual(120);
   });
 });
