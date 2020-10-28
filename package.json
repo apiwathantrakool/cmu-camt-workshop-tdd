@@ -15,7 +15,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "qa": "react-scripts test --coverage --watchAll"
   },
   "eslintConfig": {
     "extends": [
@@ -39,7 +40,13 @@
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
     "@testing-library/react": "^11.1.0",
-    "babel-jest": "^26.6.1",
+    "babel-jest": "26.6.0",
     "jest": "26.6.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!<rootDir>/node_modules/"
+    ]
   }
 }
