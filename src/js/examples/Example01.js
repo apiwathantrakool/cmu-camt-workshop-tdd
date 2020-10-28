@@ -1,17 +1,11 @@
 // unit test boundary
 
-export const getStatusBackgroundColor = (remainHours, totalHours) => {
-  const hoursPercentage = parseInt(getHoursPercentage(remainHours, totalHours));
-  if (hoursPercentage > 40) {
+export const getColorByPercentage = (percentage) => {
+  if (percentage > 40) {
     return 'blue';
-  } else if (hoursPercentage <= 40 && hoursPercentage > 0) {
+  } else if (percentage <= 40 && percentage > 20) {
     return 'yellow';
   } else {
     return 'red';
   }
-};
-
-export const getHoursPercentage = (hours, totalHours) => {
-  const hoursPercentage = (parseInt(hours) / parseInt(totalHours)) * 100;
-  return hoursPercentage;
 };
