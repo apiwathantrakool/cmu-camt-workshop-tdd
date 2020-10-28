@@ -132,6 +132,17 @@ describe('get color value following percentage range', () => {
     const expectResult = 'red';
     expect(actualResult).toEqual(expectResult);
   });
+
+  it('case: default', () => {
+    // Arrange
+    const remainHours = null;
+    const totalHours = null;
+    // Act
+    const actualResult = getColorByHoursPercentage(remainHours, totalHours);
+    // Assert
+    const expectResult = null;
+    expect(actualResult).toEqual(expectResult);
+  });
 });
 
 describe('get percentage from hours and total hours', () => {

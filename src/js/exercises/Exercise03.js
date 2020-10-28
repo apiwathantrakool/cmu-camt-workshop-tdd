@@ -19,6 +19,8 @@ export const getColorByHoursPercentage = (remainHours, totalHours) => {
     return 'yellow';
   } else if (hoursPercentage <= 29) {
     return 'red';
+  } else {
+    return null;
   }
 };
 
