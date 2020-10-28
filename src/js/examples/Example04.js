@@ -1,5 +1,7 @@
 import _ from "lodash";
 
+// Friendly maintenance
+
 export const getTotalCourts = (availableTimes) => {
   const hours = _.get(availableTimes, ["hours"], {});
   if (_.isEmpty(hours)) {

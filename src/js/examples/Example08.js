@@ -1,6 +1,7 @@
 import moment from "moment";
 import _ from "lodash";
 
+// Refactoring
 const EVERY_DAYS_OF_WEEK = "dddd";
 const DEFAULT_LOCALE = "en";
 
