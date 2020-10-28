@@ -1,6 +1,7 @@
 // Requirements: refactor function "getDateListFromFilter".
 // 1. Replace switch case logic with object logic.
 // 2. Run the test without update anything.
+// 3. Optional, create uni test for "getPreviousDateList".
 // ref: https://ultimatecourses.com/blog/deprecating-the-switch-statement-for-object-literals
 
 import moment from 'moment';
@@ -18,16 +19,6 @@ export const getPreviousDateList = (numberOfDate, startDate) => {
   }
   return dateList;
 };
-
-// export const getDateListFromFilter = (filterId, startDate) => {
-//   const dateList = {
-//     today: [startDate],
-//     sevenDays: getPreviousDateList(7, startDate),
-//     thirtyDays: getPreviousDateList(30, startDate),
-//     default: [],
-//   };
-//   return dateList[filterId] || dateList["default"];
-// };
 
 export const getDateListFromFilter = (filterId, startDate) => {
   switch (filterId) {

@@ -5,19 +5,6 @@
 // 4. Run the test then the result should be the same.
 // 5. Add unit test for separated function(sub-function).
 
-export const getTxtCourtNumberFromCourtList = (courtList) => {
-  if (courtList === undefined || courtList.length === 0) {
-    return "";
-  } else {
-    const integerNumberCourtArr = courtList.map((val) => {
-      return getTxtCourtNumberFromCourtId(val);
-    });
-    const txtCourtNumber = integerNumberCourtArr.join("-");
-    return txtCourtNumber;
-  }
-};
+export const getTxtCourtNumberFromCourtList = (courtList) => {};
 
-export const getTxtCourtNumberFromCourtId = (courtId) => {
-  const result = courtId.replace("c", "");
-  return parseInt(result) + 1;
-};
+export const getTxtCourtNumberFromCourtId = (courtId) => {};

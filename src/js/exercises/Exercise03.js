@@ -9,22 +9,4 @@
 
 // Optional: create a function to calculate percentage and unit test
 
-export const getColorByHoursPercentage = (remainHours, totalHours) => {
-  const hoursPercentage = parseInt(getHoursPercentage(remainHours, totalHours));
-  if (hoursPercentage >= 80) {
-    return 'green';
-  } else if (hoursPercentage < 80 && hoursPercentage >= 60) {
-    return 'blue';
-  } else if (hoursPercentage < 60 && hoursPercentage >= 30) {
-    return 'yellow';
-  } else if (hoursPercentage <= 29) {
-    return 'red';
-  } else {
-    return null;
-  }
-};
-
-export const getHoursPercentage = (hours, totalHours) => {
-  const hoursPercentage = (parseInt(hours) / parseInt(totalHours)) * 100;
-  return hoursPercentage;
-};
+export const getColorByHoursPercentage = (remainHours, totalHours) => {};
