@@ -5,7 +5,7 @@ export const getTxtCourtNumberFromCourtList = (courtList) => {
     const integerNumberCourtArr = courtList.map((val) => {
       return getTxtCourtNumberFromCourtId(val);
     });
-    const txtCourtNumber = integerNumberCourtArr.join(",");
+    const txtCourtNumber = integerNumberCourtArr.join("-");
     return txtCourtNumber;
   }
 };

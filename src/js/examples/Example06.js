@@ -1,5 +1,6 @@
 import _ from "lodash";
 
+// Correctness
 export const calculateBookingRevenueWithStatus = (bookingList, status) => {
   const allTotalPrice = _.map(bookingList, (bookingData) => {
     const bookingStatus = _.get(bookingData, "status", 0);

@@ -2,6 +2,7 @@ import moment from "moment";
 import _ from "lodash";
 export const DEFAULT_DATE_FORMAT = "YYYY-MM-DD";
 
+// Integration
 export const getNewDateFormat = (dateFormat, newFormat) => {
   const newDateFormat = moment(dateFormat);
   return moment(newDateFormat).format(newFormat);

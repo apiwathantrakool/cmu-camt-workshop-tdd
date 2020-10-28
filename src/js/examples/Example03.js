@@ -1,5 +1,7 @@
 import _ from "lodash";
 
+// unit test boundary
+
 export const getStatusBackgroundColor = (remainHours, totalHours) => {
   const hoursPercentage = _.toInteger(
     getHoursPercentage(remainHours, totalHours)
