@@ -1,15 +1,14 @@
-import _ from "lodash";
-
 // Correctness
 export const calculateBookingRevenueWithStatus = (bookingList, status) => {
-  const allTotalPrice = _.map(bookingList, (bookingData) => {
-    const bookingStatus = _.get(bookingData, "status", 0);
-    if (_.isEqual(status, bookingStatus)) {
-      const orderPrice = _.get(bookingData, "totalPrice", 0);
-      return orderPrice;
+  let revenue = 0;
+  Object.values(bookingList).forEach((bookingData) => {
+    const bookingStatus = bookingData.status;
+    if (status === bookingStatus) {
+      const orderPrice = bookingData.totalPrice;
+      revenue += orderPrice;
     } else {
-      return 0;
+      revenue += 0;
     }
   });
-  return _.sum(allTotalPrice);
+  return revenue;
 };

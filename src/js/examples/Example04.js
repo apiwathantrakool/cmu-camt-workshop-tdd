@@ -1,31 +1,35 @@
-import _ from "lodash";
-
 // Friendly maintenance
+// Correctness
 
 export const getTotalCourts = (availableTimes) => {
-  const hours = _.get(availableTimes, ["hours"], {});
-  if (_.isEmpty(hours)) {
+  const { hours } = availableTimes;
+  if (typeof hours == 'undefined') {
     return 0;
   } else {
     let totalCourts = 0;
-    _.forEach(hours, (val) => {
-      const courts = _.get(val, "courts", {});
-      totalCourts = _.toInteger(totalCourts) + _.size(courts);
+    const hoursList = Object.values(hours);
+    hoursList.forEach((val) => {
+      const courtsLength = Object.values(val.courts).length;
+      totalCourts += courtsLength;
     });
     return totalCourts;
   }
 };
 
 export const getRemainCourts = (availableTimes) => {
-  const hours = _.get(availableTimes, ["hours"]);
-  let remainCourts = 0;
-  _.forEach(hours, (val) => {
-    const courts = _.get(val, "courts", {});
-    const freeCourts = _.filter(courts, (court) => {
-      return _.isEqual(court.status, "available");
+  const { hours } = availableTimes;
+  if (typeof hours == 'undefined') {
+    return 0;
+  } else {
+    let totalCourts = 0;
+    const hoursList = Object.values(hours);
+    hoursList.forEach((val) => {
+      const courtsVal = Object.values(val.courts);
+      const freeCourts = courtsVal.filter((courtData) => {
+        return courtData.status === 'available';
+      });
+      totalCourts += parseInt(freeCourts.length);
     });
-    const numberOfFreeCourts = _.size(freeCourts);
-    remainCourts = _.toInteger(remainCourts) + _.toInteger(numberOfFreeCourts);
-  });
-  return remainCourts;
+    return totalCourts;
+  }
 };

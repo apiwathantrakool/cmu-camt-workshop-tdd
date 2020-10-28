@@ -1,32 +1,32 @@
-import { getTotalCourts, getRemainCourts } from "./Example04";
+import { getTotalCourts, getRemainCourts } from './Example04';
 
 const mockAvailableTimes = {
   hours: {
-    "13:00": {
+    '13:00': {
       courts: {
         c00: {
-          status: "available",
+          status: 'available',
         },
         c01: {
-          status: "unavailable",
+          status: 'unavailable',
         },
       },
     },
-    "14:00": {
+    '14:00': {
       courts: {
         c00: {
-          status: "available",
+          status: 'available',
         },
         c01: {
-          status: "available",
+          status: 'available',
         },
       },
     },
   },
 };
 
-describe("get total courts", () => {
-  it("case: normal", () => {
+describe('get total courts', () => {
+  it('case: normal', () => {
     // Arrange
     const availableTimes = mockAvailableTimes;
     // Act
@@ -36,7 +36,7 @@ describe("get total courts", () => {
     expect(result).toEqual(expectResult);
   });
 
-  it("case: exception", () => {
+  it('case: exception', () => {
     // Arrange
     const availableTimes = {};
     // Act
@@ -47,8 +47,8 @@ describe("get total courts", () => {
   });
 });
 
-describe("get remain courts", () => {
-  it("case: normal", () => {
+describe('get remain courts', () => {
+  it('case: normal', () => {
     // Arrange
     const availableTimes = mockAvailableTimes;
     // Act
@@ -58,7 +58,7 @@ describe("get remain courts", () => {
     expect(result).toEqual(expectResult);
   });
 
-  it("case: exception", () => {
+  it('case: exception', () => {
     // Arrange
     const availableTimes = {};
     // Act
