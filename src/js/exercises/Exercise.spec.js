@@ -1,4 +1,4 @@
-import { getDateListFromFilter } from "./Exercise01";
+import { getDateListFromFilter } from "./Exercise";
 
 describe("getDateListFromFilter", () => {
   it("get list of date start from inputting start date and filter type: case today", () => {

@@ -6,7 +6,7 @@ export const getTxtCourtNumberFromCourtList = (courtList) => {
       const result = val.replace("c", "");
       return parseInt(result) + 1;
     });
-    const txtCourtNumber = integerNumberCourtArr.join(",");
+    const txtCourtNumber = integerNumberCourtArr.join("-");
     return txtCourtNumber;
   }
 };

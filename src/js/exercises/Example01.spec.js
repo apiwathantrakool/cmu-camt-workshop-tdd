@@ -7,7 +7,7 @@ describe("get text of court number from array list of court numbers", () => {
     // Act
     const actualResult = getTxtCourtNumberFromCourtList(courtList);
     // Assert
-    const expectResult = "1,2,3";
+    const expectResult = "1-2-3";
     expect(actualResult).toEqual(expectResult);
   });
   it("case: empty list", () => {
