@@ -1,70 +1,17 @@
-import { getTotalCourts, getRemainCourts } from './Example04';
+import { calculateBookingRevenueWithStatus } from './Example04';
 
-const mockAvailableTimes = {
-  hours: {
-    '13:00': {
-      courts: {
-        c00: {
-          status: 'available',
-        },
-        c01: {
-          status: 'unavailable',
-        },
-      },
-    },
-    '14:00': {
-      courts: {
-        c00: {
-          status: 'available',
-        },
-        c01: {
-          status: 'available',
-        },
-      },
-    },
-  },
-};
-
-describe('get total courts', () => {
+describe('return revenue from calculating booking list with specific status', () => {
+  const bookingList = {
+    b001: { status: 'Confirmed', totalPrice: 1200 },
+    b002: { status: 'Verifying', totalPrice: 1000 },
+    b003: { status: 'Confirmed', totalPrice: 1100 },
+  };
   it('case: normal', () => {
-    // Arrange
-    const availableTimes = mockAvailableTimes;
-    // Act
-    const result = getTotalCourts(availableTimes);
-    // Assert
-    const expectResult = 4;
-    expect(result).toEqual(expectResult);
+    const result = calculateBookingRevenueWithStatus(bookingList, 'Confirmed');
+    expect(result).toEqual(2300);
   });
-
-  it('case: exception', () => {
-    // Arrange
-    const availableTimes = {};
-    // Act
-    const result = getTotalCourts(availableTimes);
-    // Assert
-    const expectResult = 0;
-    expect(result).toEqual(expectResult);
-  });
-});
-
-describe('get remain courts', () => {
-  it('case: normal', () => {
-    // Arrange
-    const availableTimes = mockAvailableTimes;
-    // Act
-    const result = getRemainCourts(availableTimes);
-    // Assert
-    const expectResult = 3;
-    expect(result).toEqual(expectResult);
-  });
-
-  it('case: exception', () => {
-    // Arrange
-    const availableTimes = {};
-    // Act
-    const result = getRemainCourts(availableTimes);
-    // Assert
-    const expectResult = 0;
-    expect(result).toEqual(expectResult);
+  it('case: undefined', () => {
+    const result = calculateBookingRevenueWithStatus(bookingList, 'Canceled');
+    expect(result).toEqual(0);
   });
 });

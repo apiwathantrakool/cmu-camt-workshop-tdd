@@ -1,35 +1,14 @@
-// Friendly maintenance
 // Correctness
-
-export const getTotalCourts = (availableTimes) => {
-  const { hours } = availableTimes;
-  if (typeof hours == 'undefined') {
-    return 0;
-  } else {
-    let totalCourts = 0;
-    const hoursList = Object.values(hours);
-    hoursList.forEach((val) => {
-      const courtsLength = Object.values(val.courts).length;
-      totalCourts += courtsLength;
-    });
-    return totalCourts;
-  }
-};
-
-export const getRemainCourts = (availableTimes) => {
-  const { hours } = availableTimes;
-  if (typeof hours == 'undefined') {
-    return 0;
-  } else {
-    let totalCourts = 0;
-    const hoursList = Object.values(hours);
-    hoursList.forEach((val) => {
-      const courtsVal = Object.values(val.courts);
-      const freeCourts = courtsVal.filter((courtData) => {
-        return courtData.status === 'available';
-      });
-      totalCourts += parseInt(freeCourts.length);
-    });
-    return totalCourts;
-  }
+export const calculateBookingRevenueWithStatus = (bookingList, status) => {
+  let revenue = 0;
+  Object.values(bookingList).forEach((bookingData) => {
+    const bookingStatus = bookingData.status;
+    if (status === bookingStatus) {
+      const orderPrice = bookingData.totalPrice;
+      revenue += orderPrice;
+    } else {
+      revenue += 0;
+    }
+  });
+  return revenue;
 };

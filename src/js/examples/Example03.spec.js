@@ -1,71 +1,46 @@
-import { getStatusBackgroundColor, getHoursPercentage } from "./Example03";
+import { separateBookingDate } from './Example03';
 
-describe("get backgroundColor style value for status bar by percentage", () => {
-  it("case: percentage > 40", () => {
-    // Arrange
-    const remainHours = 90;
-    const totalHours = 100;
-    // Act
-    const actualResult = getStatusBackgroundColor(remainHours, totalHours);
-    // Assert
-    const expectResult = "blue";
-    expect(actualResult).toEqual(expectResult);
-  });
-
-  it("case: percentage === 40", () => {
-    // Arrange
-    const remainHours = 40;
-    const totalHours = 100;
-    // Act
-    const actualResult = getStatusBackgroundColor(remainHours, totalHours);
-    // Assert
-    const expectResult = "yellow";
-    expect(actualResult).toEqual(expectResult);
-  });
-
-  it("case: percentage < 40", () => {
-    // Arrange
-    const remainHours = 39;
-    const totalHours = 100;
-    // Act
-    const actualResult = getStatusBackgroundColor(remainHours, totalHours);
-    // Assert
-    const expectResult = "yellow";
-    expect(actualResult).toEqual(expectResult);
-  });
-
-  it("case: percentage === 0", () => {
-    // Arrange
-    const remainHours = 39;
-    const totalHours = 100;
-    // Act
-    const actualResult = getStatusBackgroundColor(remainHours, totalHours);
-    // Assert
-    const expectResult = "yellow";
-    expect(actualResult).toEqual(expectResult);
-  });
-
-  it("case: percentage < 0", () => {
-    // Arrange
-    const remainHours = -1;
-    const totalHours = 100;
-    // Act
-    const actualResult = getStatusBackgroundColor(remainHours, totalHours);
-    // Assert
-    const expectResult = "red";
-    expect(actualResult).toEqual(expectResult);
-  });
-});
-
-describe("get percentage from hours and total hours", () => {
-  it("case: normal", () => {
-    // Arrange
-    const hours = 12;
-    const totalHours = 24;
-    // Act
-    const result = getHoursPercentage(hours, totalHours);
-    // Assert
-    const expectResult = 50;
+describe('return booking array object group by createDate', () => {
+  it('case: normal', () => {
+    const bookingData = {
+      b001: {
+        createDate: '2020-07-03',
+        bookingId: 'b001',
+        totalPrice: 100,
+      },
+      b002: {
+        createDate: '2020-07-08',
+        bookingId: 'b002',
+        totalPrice: 200,
+      },
+      b003: {
+        createDate: '2020-07-08',
+        bookingId: 'b003',
+        totalPrice: 300,
+      },
+      b004: {
+        createDate: '2020-07-03',
+        bookingId: 'b004',
+        totalPrice: 400,
+      },
+    };
+    const result = separateBookingDate(bookingData);
+    const expectResult = [
+      {
+        id: '2020-07-03',
+        data: [
+          { createDate: '2020-07-03', bookingId: 'b001', totalPrice: 100 },
+          { createDate: '2020-07-03', bookingId: 'b004', totalPrice: 400 },
+        ],
+      },
+      {
+        id: '2020-07-08',
+        data: [
+          { createDate: '2020-07-08', bookingId: 'b002', totalPrice: 200 },
+          { createDate: '2020-07-08', bookingId: 'b003', totalPrice: 300 },
+        ],
+      },
+    ];
     expect(result).toEqual(expectResult);
   });
 });

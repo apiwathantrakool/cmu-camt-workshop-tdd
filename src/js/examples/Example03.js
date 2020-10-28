@@ -1,17 +1,14 @@
-// unit test boundary
+import _ from "lodash";
 
-export const getStatusBackgroundColor = (remainHours, totalHours) => {
-  const hoursPercentage = parseInt(getHoursPercentage(remainHours, totalHours));
-  if (hoursPercentage > 40) {
-    return 'blue';
-  } else if (hoursPercentage <= 40 && hoursPercentage > 0) {
-    return 'yellow';
-  } else {
-    return 'red';
-  }
-};
+// Friendly maintenance
 
-export const getHoursPercentage = (hours, totalHours) => {
-  const hoursPercentage = (parseInt(hours) / parseInt(totalHours)) * 100;
-  return hoursPercentage;
+export const separateBookingDate = (bookingList) => {
+  const bookingListCreateDateGroup = _.groupBy(bookingList, "createDate");
+  const bookingListCreateDateGroupData = _.map(
+    bookingListCreateDateGroup,
+    (data, id) => {
+      return { id, data };
+    }
+  );
+  return bookingListCreateDateGroupData;
 };
