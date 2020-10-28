@@ -1,4 +1,4 @@
-import { getTxtCourtNumberFromCourtList } from "./Example01";
+import { getTxtCourtNumberFromCourtList } from "./Exercise01";
 
 describe("get text of court number from array list of court numbers", () => {
   it("case: normal", () => {

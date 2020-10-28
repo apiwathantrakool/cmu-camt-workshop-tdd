@@ -1,7 +1,7 @@
 import {
   getTxtCourtNumberFromCourtList,
   getTxtCourtNumberFromCourtId,
-} from "./Example02";
+} from "./Exercise02";
 
 describe("get text of court number from array list of court numbers", () => {
   it("case: normal", () => {
