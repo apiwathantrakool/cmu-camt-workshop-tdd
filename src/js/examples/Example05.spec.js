@@ -24,8 +24,7 @@ describe("return booking array object group by createDate", () => {
         totalPrice: 400,
       },
     };
-    const today = "2020-07-08";
-    const result = separateBookingDate(bookingData, today);
+    const result = separateBookingDate(bookingData);
     const expectResult = [
       {
         id: "2020-07-03",

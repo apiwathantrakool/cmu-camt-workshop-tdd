@@ -1,6 +1,6 @@
 import _ from "lodash";
 
-export const separateBookingDate = (bookingList, maxDateFormat) => {
+export const separateBookingDate = (bookingList) => {
   const bookingListCreateDateGroup = _.groupBy(bookingList, "createDate");
   const bookingListCreateDateGroupData = _.map(
     bookingListCreateDateGroup,
