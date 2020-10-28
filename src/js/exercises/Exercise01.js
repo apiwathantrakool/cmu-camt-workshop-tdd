@@ -2,9 +2,11 @@
 // 1. receive array of IDs.
 // 2. remove character "c" then plus +1 for each ID.
 // 3. Join the IDs together by "-" sign.
+
 // Example:
 // input: ["c00", "c01", "c02"]
 // output: 1-2-3
+
 // Example:
 // input: ["c00"]
 // output: 1
