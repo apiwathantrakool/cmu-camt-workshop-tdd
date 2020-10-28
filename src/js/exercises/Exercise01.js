@@ -1,6 +1,6 @@
 // Requirements: create a function to convert list of IDs to text number.
-// 1. receive array of IDs.
-// 2. remove character "c" then plus +1 for each ID.
+// 1. Receive array of IDs.
+// 2. Remove character "c" then plus +1 for each ID.
 // 3. Join the IDs together by "-" sign.
 
 // Example:
