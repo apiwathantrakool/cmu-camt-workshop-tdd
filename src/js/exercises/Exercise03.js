@@ -3,9 +3,9 @@
 // 2. Calculate percentage from remain hours and total hours.
 // 3. Add condition to return color value following:
 // 3.1 More than or equal 80% = 'green'
-// 3.2 79% to 60% = 'blue'
-// 3.3 59% to 30% = 'yellow'
-// 3.4 Less than or equal 29% = 'red'
+// 3.2 More than or equal 60% = 'blue'
+// 3.3 More than or equal 30% = 'yellow'
+// 3.4 Less than 30% = 'red'
 
 // Optional: create a function to calculate percentage and unit test
 
